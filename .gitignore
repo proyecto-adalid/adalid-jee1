@@ -1,8 +1,8 @@
 *.lnk
 *.log
-*.zip
 /ejemplo/xyz1/source/meta/build/
 /ejemplo/xyz1/source/meta/dist/
 /ejemplo/xyz1/source/meta/nbproject/build-impl.xml
 /ejemplo/xyz1/source/meta/nbproject/genfiles.properties
 /ejemplo/xyz1/source/meta/nbproject/private/
+/zip/archives
