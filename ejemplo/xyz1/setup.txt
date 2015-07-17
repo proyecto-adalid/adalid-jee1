@@ -1,0 +1,273 @@
+--------------------------------------------------------------------------------
+Instalación de librerias de terceras partes
+--------------------------------------------------------------------------------
+01. Descomprimir el archivo third-party.zip en C:\workspace
+
+    Esta acción crea el directorio C:\workspace\third-party
+
+--------------------------------------------------------------------------------
+Instalación de Adalid
+--------------------------------------------------------------------------------
+01. Descomprimir el archivo adalid.zip en C:\workspace
+
+    Esta acción crea el directorio C:\workspace\adalid
+
+--------------------------------------------------------------------------------
+Configuración de NetBeans para Adalid
+--------------------------------------------------------------------------------
+01. Instalar el módulo de plantillas de código de Adalid
+
+    En el menú de barra de NetBeans, seleccione "Tools".
+
+    En el menú desplegable "Tools", seleccione "Plugins".
+
+    En la ventana "Plugins", seleccione la pestaña "Downloaded".
+
+    En la pestaña "Downloaded", haga clic en el botón "Add Plugins...".
+
+    En la ventana "Add Plugins", busque el directorio adalid\lib, seleccione el
+    archivo "adalid-code-templates.nbm" y haga clic en el botón "Open".
+
+    De regreso en la ventana "Plugins", haga clic en el botón "Install".
+
+02. Agregar las plantillas de archivos de Adalid
+
+    En el menú de barra de NetBeans, seleccione "Tools".
+
+    En el menú desplegable "Tools", seleccione "Templates".
+
+    En la ventana "Template Manager", seleccione la primera de las carpetas de
+    la lista de plantillas y haga clic en el botón "New Folder". Esta acción
+    crea una carpeta "New Folder" dentro de la carpeta previamente seleccionada.
+
+    En la ventana "Template Manager", haga clic en el botón "Rename".
+
+    En la ventana "Rename template", escriba "Adalid" en todos los campos y haga
+    clic en el botón "OK".
+
+    De regreso en la ventana "Template Manager", seleccione la carpeta "Adalid"
+    en la lista de plantillas, arrástrela fuera de la carpeta que la contiene y
+    suéltela entre otras dos carpetas cualesquiera.
+
+    En la ventana "Template Manager", seleccione la carpeta "Adalid" en la lista
+    de plantillas (debería estar muy cerca del comienzo de la lista, ya que ésta
+    se encuentra en orden alfabético) y haga clic en el botón "Add...".
+
+    En la ventana "Add Existing Template", busque el directorio
+    adalid\source\development\resources\freemarker\file-templates\entities,
+    seleccione uno cualquiera de los archivos y haga clic en el botón "Add".
+
+    Repita los dos pasos anteriores para agregar el resto de los archivos que
+    se encuentran en el directorio especificado (si hubiere).
+
+    En la ventana "Template Manager", seleccione la carpeta "Licenses" en la
+    lista de plantillas y haga clic en el botón "Add...".
+
+    En la ventana "Add Existing Template", busque el directorio
+    adalid\source\development\resources\freemarker\file-templates\licenses,
+    seleccione uno cualquiera de los archivos y haga clic en el botón "Add".
+
+    Repita los dos pasos anteriores para agregar el resto de los archivos que
+    se encuentran en el directorio especificado (si hubiere).
+
+03. Reiniciar NetBeans
+
+--------------------------------------------------------------------------------
+Creación de proyectos con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Descomprimir el archivo jee1.zip en C:\workspace
+
+    Esta acción crea el directorio C:\workspace\jee1
+
+02. Renombrar el directorio jee1 creado en C:\workspace
+
+    Debe renombrar el directorio jee1 con el nombre de su proyecto; pero el nombre
+    solo puede contener letras minúsculas y numeros, y debe comenzar por una letra.
+
+03. Ejecutar C:\workspace\?\refactor.bat
+
+    NOTA: El signo de interrogación representa el nombre de su proyecto.
+
+--------------------------------------------------------------------------------
+Configuración de NetBeans para proyectos creados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Copiar librerías Ant
+
+    Copie todos los archivos xml que se encuentran en el directorio
+    C:\workspace\?\source\development\resources\libraries\netbeans al subdirectorio
+    config\org-netbeans-api-project-libraries\Libraries del directorio de
+    configuración personalizada de NetBeans, conocido como "userdir".
+    Por omisión, userdir está dentro del directorio NetBeans que se encuentra en
+    el directorio de datos de programa del usuario. Para mayor información sobre
+    userdir, consulte la página http://wiki.netbeans.org/FaqWhatIsUserdir
+
+02. Reiniciar NetBeans
+
+--------------------------------------------------------------------------------
+Generación de proyectos mediante proyectos creados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Especificar el nombre del proyecto a generar
+
+    Utilizando NetBeans, abra el proyecto C:\workspace\?\source\meta (el signo de
+    interrogación representa el nombre de su proyecto).
+
+    En la clase meta.proyecto.Maestro del proyecto meta, la siguiente instrucción:
+
+            maestro.setAlias("?ap101");
+
+    establece el alias del proyecto Maestro, el cual se utilizará como nombre del
+    proyecto a generar por las siguientes dos instrucciones:
+
+            maestro.generate(PLATAFORMA_BASE);
+            maestro.generate(PLATAFORMA_NETBEANS_POSTGRESQL_GLASSFISH);
+
+    El alias solo puede contener letras minúsculas y numeros, debe comenzar por
+    una letra, y no puede ser "meta". Se recomienda utilizar un alias que tenga
+    el nombre de su proyecto como prefijo.
+
+    NOTA: la instrucción original es
+
+            maestro.setAlias("jee1ap101");
+
+    El script C:\workspace\?\refactor.bat (que se ejecutó antes, en la sección
+    Creación de proyectos con la plantilla "jee1", cambia el prefijo "jee1" por
+    el nombre de su proyecto y mantiene el sufijo "ap101".
+
+02. Ejecutar el proyecto meta
+
+    En la ventana "Projects" de NetBeans, seleccione el proyecto meta.
+
+    En el menú de barra de NetBeans, seleccione "Run".
+
+    En el menú desplegable "Run", seleccione "Run Project (meta)".
+
+    Esta acción genera el proyecto en C:\workspace\?\source
+
+03. Compilar el proyecto generado
+
+    Utilizando NetBeans, abra el proyecto C:\workspace\?\source\?ap101 (?ap101
+    representa el nombre del proyecto generado).
+
+    En la ventana "Projects" de NetBeans, haga clic-derecho al proyecto ?ap101
+    y seleccione la opción "Open Required Projects".
+
+    En el menú de barra de NetBeans, seleccione "Run".
+
+    En el menú desplegable "Run", seleccione "Clean and Build Project (?ap101)".
+
+--------------------------------------------------------------------------------
+Configuración de proyectos generados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Ejecutar ?\home-setup.bat
+
+    NOTA: El signo de interrogación representa la ruta del directorio raiz del
+    proyecto generado.
+
+02. Revisar y ajustar las variables de entorno en los siguientes archivos:
+
+    ?\source\management\variables-conf.bat
+    ?\source\management\variables-home.bat
+    ?\source\management\variables-glassfish.bat
+    ?\source\management\variables-postgresql.bat
+    ?\source\management\asadmin.password
+
+--------------------------------------------------------------------------------
+Configuración de PostgreSQL para proyectos generados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Iniciar PostgreSQL.
+
+02. Ejecutar ?\source\management\resources\scripts\windows\postgresql\dropmakedb.bat
+
+--------------------------------------------------------------------------------
+Configuración de GlassFish para proyectos generados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Detener GlassFish y hacer una copia de respaldo de los siguientes archivos:
+
+    glassfish\domains\domain1\config\server.policy
+    glassfish\domains\domain1\config\default-web.xml
+    glassfish\domains\domain1\config\domain.xml
+
+02. Agregar a glassfish\domains\domain1\config\server.policy,
+    antes de permission java.lang.RuntimePermission  "loadLibrary.*";):
+
+    permission java.lang.RuntimePermission  "getenv.*";
+
+03. Agregar a glassfish\domains\domain1\config\default-web.xml,
+    en la sección "Default MIME Type Mappings",
+
+    entre las extensiones "css" y "dib":
+
+    <mime-mapping>
+        <extension>csv</extension>
+        <mime-type>application/vnd.ms-excel</mime-type>
+    </mime-mapping>
+
+    entre las extensiones "latex" y "m3u":
+
+    <mime-mapping>
+        <extension>log</extension>
+        <mime-type>text/plain</mime-type>
+    </mime-mapping>
+
+04. En glassfish\domains\domain1\config\default-web.xml,
+    establecer la propiedad listings del servlet DefaultServlet como false
+
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+05. En glassfish\domains\domain1\config\domain.xml,
+    en la seccion <config name="server-config">
+
+    Establecer la propiedad sso-enabled del http-service
+
+            ...
+            <http-service sso-enabled="true">
+            ...
+
+    Ajustar parámetros de la JVM, añadiendo o modificando las siguientes opciones
+            ...
+            <java-config ...>
+                <jvm-options>-Xms128m</jvm-options>
+                <jvm-options>-Xmx1024m</jvm-options>
+                <jvm-options>-XX:MaxPermSize=384m</jvm-options>
+            ...
+
+06. Iniciar GlassFish.
+
+07. Ejecutar ?\source\management\resources\scripts\windows\glassfish\add-libraries.bat
+
+08. Detener y reiniciar GlassFish.
+
+09. Ejecutar ?\source\management\resources\scripts\windows\glassfish\create-jdbc.bat
+
+10. Ejecutar ?\source\management\resources\scripts\windows\glassfish\create-jms.bat
+
+11. Ejecutar ?\source\management\resources\scripts\windows\glassfish\create-jvm-options.bat
+
+12. Ejecutar ?\source\management\resources\scripts\windows\glassfish\create-jvm-options.es_VE.bat
+
+13. Ejecutar ?\source\management\resources\scripts\windows\glassfish\create-system-properties.bat
+
+14. Detener y reiniciar GlassFish.
+
+--------------------------------------------------------------------------------
+Ejecución de proyectos generados con la plantilla "jee1"
+--------------------------------------------------------------------------------
+01. Ejecutar el proyecto ?ap101 (?ap101 representa el nombre del proyecto generado).
+
+    En la ventana "Projects" de NetBeans, seleccione el proyecto ?ap101
+
+    En el menú de barra de NetBeans, seleccione "Run".
+
+    En el menú desplegable "Run", seleccione "Run Project (?ap101)".

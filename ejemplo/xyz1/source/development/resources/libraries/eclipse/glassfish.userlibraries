@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="glassfish-core-modules" systemlibrary="false">
+        <archive path="/third-party/lib/glassfish/core/modules/javax.el-api.jar"/>
+        <archive path="/third-party/lib/glassfish/core/modules/javax.faces.jar"/>
+        <archive path="/third-party/lib/glassfish/core/modules/javax.jms.jar"/>
+        <archive path="/third-party/lib/glassfish/core/modules/javax.servlet-api.jar"/>
+        <archive path="/third-party/lib/glassfish/core/modules/javax.servlet.jsp.jar"/>
+    </library>
+    <library name="glassfish-eclipselink" systemlibrary="false">
+        <archive path="/third-party/lib/netbeans/java/modules/ext/eclipselink/2.3.2/eclipselink-2.3.2.jar"/>
+        <archive path="/third-party/lib/netbeans/java/modules/ext/eclipselink/2.3.2/javax.persistence-2.0.3.jar"/>
+        <archive path="/third-party/lib/netbeans/java/modules/ext/eclipselink/2.3.2/org.eclipse.persistence.jpa.jpql_1.0.1.jar"/>
+    </library>
+</eclipse-userlibraries>

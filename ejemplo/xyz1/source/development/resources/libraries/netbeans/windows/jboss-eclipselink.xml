@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>jboss-eclipselink</name>
+    <type>j2se</type>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/C:/workspace/third-party/jboss/modules/org/eclipse/persistence/main/eclipselink-2.4.0.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

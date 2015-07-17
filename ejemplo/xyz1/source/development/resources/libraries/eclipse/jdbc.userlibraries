@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="jdbc-drivers" systemlibrary="false">
+        <archive path="/third-party/lib/jdbc/oracle/ojdbc6.jar"/>
+        <archive path="/third-party/lib/jdbc/postgresql/postgresql-9.2-1002.jdbc4.jar"/>
+        <archive path="/third-party/lib/jdbc/sqlserver/sqljdbc4.jar"/>
+    </library>
+</eclipse-userlibraries>

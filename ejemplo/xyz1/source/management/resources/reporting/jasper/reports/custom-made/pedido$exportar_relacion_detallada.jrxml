@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="pedido" pageWidth="1008" pageHeight="612" orientation="Landscape" columnWidth="960" leftMargin="24" rightMargin="24" topMargin="24" bottomMargin="24" uuid="1d889d0f-be3a-4662-9b30-827756b744bc">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<import value="xyz1ap101.lib.base.entity.enumeration.*"/>
+	<import value="xyz1ap101.lib.base.bundle.*"/>
+	<import value="java.util.*"/>
+	<import value="java.math.BigDecimal"/>
+	<import value="xyz1ap101.lib.base.util.*"/>
+	<import value="xyz1ap101.lib.base.enumeration.*"/>
+	<template><![CDATA[$P{CUSTOM_STYLE_TEMPLATE}]]></template>
+	<parameter name="ENTERPRISE_APPLICATION_CODE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["xyz1ap101"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ENTERPRISE_APPLICATION_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["Gestión de Recursos Empresariales"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="RESOURCES_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./resources/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CUSTOM_STYLE_TEMPLATE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{RESOURCES_DIR} + $P{ENTERPRISE_APPLICATION_CODE} + "0.jrtx"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_HEADER_IMAGE_1" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{RESOURCES_DIR} + $P{ENTERPRISE_APPLICATION_CODE} + "1.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PAGE_HEADER_IMAGE_2" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{RESOURCES_DIR} + $P{ENTERPRISE_APPLICATION_CODE} + "2.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORTS_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./subreports/"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUPER_REPORT" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="END_USER_CODE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="END_USER_NAME" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="es_informe_resumido" class="java.lang.Integer" isForPrompting="false">
+		<defaultValueExpression><![CDATA[0]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SQL_WHERE_CLAUSE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SQL_LIMIT_CLAUSE" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT numero,
+codigo_1 AS "codigo cliente",
+nombre_1 AS "nombre cliente",
+fecha,
+monto,
+codigo_2 AS "estado",
+fecha_estado AS "fecha estado"
+FROM consulta_pedido
+ORDER BY numero ASC
+]]>
+	</queryString>
+	<field name="numero" class="java.lang.String"/>
+	<field name="codigo cliente" class="java.lang.String"/>
+	<field name="nombre cliente" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="monto" class="java.math.BigDecimal"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="fecha estado" class="java.sql.Date"/>
+	<group name="detailGroup" isReprintHeaderOnEachPage="true" minHeightToStartNewPage="36">
+		<groupExpression><![CDATA[false]]></groupExpression>
+		<groupHeader>
+			<band height="20" splitType="Prevent">
+				<printWhenExpression><![CDATA[$P{es_informe_resumido}==0]]></printWhenExpression>
+				<frame>
+					<reportElement key="frame" style="ch-band1" x="0" y="0" width="960" height="20" uuid="9b3ed2d3-7497-4ace-a68a-8dba5aa366bb"/>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="0" y="0" width="172" height="20" uuid="b3db432d-f1d6-47a7-b927-72309225dd16"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.numero")]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="172" y="0" width="172" height="20" uuid="3db16b4e-f4c9-4c86-9dcc-5de62617c5fb"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.cliente.codigo")]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="344" y="0" width="258" height="20" uuid="6c098ed0-8aa8-4fe0-b6b5-7421f8d21ed3"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.cliente.nombre")]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="602" y="0" width="64" height="20" uuid="18b7b9a9-91cb-4444-82a2-6864307f7d97"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.fecha")]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="666" y="0" width="120" height="20" uuid="de47235b-2cde-4da7-9157-9076cc101a36"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.monto")]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+						<reportElement key="textField" style="ch-text1" x="786" y="0" width="174" height="20" uuid="33f38b68-bb00-4f1d-b4da-b722e2977386"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[JRBundleParametros.getShortLabel($P{REPORT_LOCALE}, "pedido.estado.codigo")]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Prevent">
+				<printWhenExpression><![CDATA[$P{es_informe_resumido}==0]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="reportGroup1" minHeightToStartNewPage="132">
+		<groupExpression><![CDATA[false]]></groupExpression>
+		<groupHeader>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				<frame>
+					<reportElement key="frame" style="gh1band1" x="0" y="0" width="960" height="24" uuid="4676feb2-58da-4467-be4c-87ce39dbb083"/>
+					<staticText>
+						<reportElement key="staticText" style="gh1text1" x="0" y="0" width="160" height="24" uuid="f10e9dfc-ee0c-410f-9be7-b15af781a83f"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh1text2" stretchType="RelativeToBandHeight" x="160" y="0" width="320" height="24" uuid="3e114b7b-4c7a-4b7c-9f74-6d84ac3e903d"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh1text2" stretchType="RelativeToBandHeight" x="480" y="0" width="480" height="24" uuid="ef31a2a4-8928-426f-9672-f440eba58051"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="reportGroup2" minHeightToStartNewPage="108">
+		<groupExpression><![CDATA[false]]></groupExpression>
+		<groupHeader>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				<frame>
+					<reportElement key="frame" style="gh2band1" x="0" y="0" width="960" height="24" uuid="4bbd9d43-3155-49a9-832a-ad318c6208fd"/>
+					<staticText>
+						<reportElement key="staticText" style="gh2text1" x="0" y="0" width="160" height="24" uuid="1237e48b-712a-4f60-ad29-8534b3db4ca5"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh2text2" stretchType="RelativeToBandHeight" x="160" y="0" width="320" height="24" uuid="819c79d0-ab83-4f50-afd2-6743b28cf54e"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh2text2" stretchType="RelativeToBandHeight" x="480" y="0" width="480" height="24" uuid="801aae95-d1f5-409b-84de-a792dd0b4137"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="reportGroup3" minHeightToStartNewPage="84">
+		<groupExpression><![CDATA[false]]></groupExpression>
+		<groupHeader>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				<frame>
+					<reportElement key="frame" style="gh3band1" x="0" y="0" width="960" height="24" uuid="800814ec-d615-45be-861a-216819f93b81"/>
+					<staticText>
+						<reportElement key="staticText" style="gh3text1" x="0" y="0" width="160" height="24" uuid="15a21136-d80b-4ed7-82f1-6d1e1dee26fd"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh3text2" stretchType="RelativeToBandHeight" x="160" y="0" width="320" height="24" uuid="b51cbb98-91de-4965-8de9-9e712fc12bc5"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh3text2" stretchType="RelativeToBandHeight" x="480" y="0" width="480" height="24" uuid="cca8ba26-af89-4c94-be4d-1a353d783849"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="reportGroup4" minHeightToStartNewPage="60">
+		<groupExpression><![CDATA[false]]></groupExpression>
+		<groupHeader>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				<frame>
+					<reportElement key="frame" style="gh4band1" x="0" y="0" width="960" height="24" uuid="21cfca34-9513-47f3-b965-ef88f2a2f43e"/>
+					<staticText>
+						<reportElement key="staticText" style="gh4text1" x="0" y="0" width="160" height="24" uuid="3e961f8f-b03d-453e-8d69-2889c03eebf9"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh4text2" stretchType="RelativeToBandHeight" x="160" y="0" width="320" height="24" uuid="7242ee21-19f1-487b-818a-8d6b23343c80"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement key="textField" style="gh4text2" stretchType="RelativeToBandHeight" x="480" y="0" width="480" height="24" uuid="15e7b8aa-d668-49d3-8b14-96253328543b"/>
+						<textElement textAlignment="Left" verticalAlignment="Middle"/>
+						<textFieldExpression><![CDATA[]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24" splitType="Prevent">
+				<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+			</band>
+		</groupFooter>
+	</group>
+	<pageHeader>
+		<band height="32" splitType="Stretch">
+			<frame>
+				<reportElement key="frame" style="ph-band1" x="0" y="0" width="960" height="32" uuid="e608021a-bb8c-4d6c-ad47-e54aec9d0644"/>
+				<image onErrorType="Icon">
+					<reportElement key="image-1" style="ph-text1" x="0" y="0" width="70" height="30" uuid="40a90ab3-b123-4c15-8889-fcbfe0fe9d09"/>
+					<imageExpression><![CDATA[$P{PAGE_HEADER_IMAGE_1}]]></imageExpression>
+				</image>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement key="textField" style="ph-text1" x="160" y="0" width="640" height="32" uuid="e29f552d-3473-4483-80a8-5561de92626e"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[JRBundleDominios.getCollectionLabel($P{REPORT_LOCALE}, "relacion detallada de pedidos").toUpperCase()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="staticText" style="ph-text1" x="800" y="0" width="160" height="32" uuid="1a302d85-fe55-4da1-8461-293656e85293"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<printWhenExpression><![CDATA[$P{es_informe_resumido}==0]]></printWhenExpression>
+			<frame>
+				<reportElement key="frame" style="dx-band1" x="0" y="0" width="960" height="16" uuid="d84c6d75-e71f-46ef-8316-13cb860a8c0c"/>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="0" y="0" width="172" height="16" uuid="4beb2e24-3ce7-42f4-ad68-89cd80aac876"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="172" y="0" width="172" height="16" uuid="59583409-11b2-4de1-9488-3478ceb8c855"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{codigo cliente}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="344" y="0" width="258" height="16" uuid="103c7078-1d64-42c7-a5e1-a851111fba34"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{nombre cliente}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="602" y="0" width="64" height="16" uuid="02af0bee-7027-4e45-894e-5e41eb197560"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="666" y="0" width="120" height="16" uuid="1c4a2b76-4180-45a9-a30f-43d2ae8fa39c"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement key="textField" style="dx-text1" stretchType="RelativeToBandHeight" x="786" y="0" width="174" height="16" uuid="d776e5cf-015e-4596-98a7-9be5373ca0b9"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement key="frame" style="pf-band1" x="0" y="0" width="960" height="20" uuid="84ace627-3482-4dcd-aa7c-6ac73f50211c"/>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+					<reportElement key="textField" style="pf-text2" stretchType="RelativeToBandHeight" x="0" y="0" width="320" height="20" uuid="2f5f6401-b534-4214-bbc1-c3affd04f9d1"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Page" isBlankWhenNull="true">
+					<reportElement key="textField" style="pf-text2" stretchType="RelativeToBandHeight" x="320" y="0" width="160" height="20" uuid="2a344fa7-b29b-455d-9ce7-37de92b86792"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement key="textField" style="pf-text2" stretchType="RelativeToBandHeight" x="480" y="0" width="160" height="20" uuid="d9e5668f-f165-4380-b7e5-c2c98421b5c6"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA["/ " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" evaluationTime="Report" isBlankWhenNull="true">
+					<reportElement key="textField" style="pf-text2" stretchType="RelativeToBandHeight" x="640" y="0" width="320" height="20" uuid="6f7876ff-3170-43d4-866b-51b361358ff9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{END_USER_NAME}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>

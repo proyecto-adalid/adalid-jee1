@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>jdbc-drivers</name>
+    <type>j2se</type>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/C:/workspace/third-party/lib/jdbc/oracle/ojdbc6.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/jdbc/postgresql/postgresql-9.2-1002.jdbc4.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/jdbc/sqlserver/sqljdbc4.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

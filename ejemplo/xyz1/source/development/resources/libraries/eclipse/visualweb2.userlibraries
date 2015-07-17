@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="jsf12-support" systemlibrary="false">
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/jsfcl.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/appbase.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/dataprovider.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/sqlx.jar"/>
+    </library>
+    <library name="woodstock-components" systemlibrary="false">
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/webui-jsf.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/json-2.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/jsf-extensions-common-0.1.jar"/>
+        <archive path="/third-party/jboss/modules/com/sun/jsf-impl/main/jsf-extensions-dynamic-faces-0.1.jar"/>
+    </library>
+</eclipse-userlibraries>

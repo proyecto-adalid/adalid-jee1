@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>adalid-compile-meta-lib-1</name>
+    <type>j2se</type>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/home/workspace/adalid/lib/adalid-jee1.jar!/</resource>
+        <resource>jar:file:/home/workspace/adalid/lib/adalid-core.jar!/</resource>
+        <resource>jar:file:/home/workspace/adalid/lib/adalid-commons.jar!/</resource>
+        <resource>jar:file:/home/workspace/adalid/lib/adalid-util.jar!/</resource>
+        <resource>jar:file:/home/workspace/adalid/lib/adalid-xmi.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

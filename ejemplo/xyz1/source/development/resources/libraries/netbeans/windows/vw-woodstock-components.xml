@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>woodstock-components</name>
+    <type>j2se</type>
+    <description>Visual Web UI Components</description>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/webui-jsf.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/json-2.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-common-0.1.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-dynamic-faces-0.1.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

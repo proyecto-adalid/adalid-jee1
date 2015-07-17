@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>glassfish-core-modules</name>
+    <type>j2se</type>
+    <description>GlassFish modules used by the core library</description>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/C:/workspace/third-party/lib/glassfish/core/modules/javax.el-api.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/glassfish/core/modules/javax.faces.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/glassfish/core/modules/javax.jms.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/glassfish/core/modules/javax.servlet-api.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/glassfish/core/modules/javax.servlet.jsp.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

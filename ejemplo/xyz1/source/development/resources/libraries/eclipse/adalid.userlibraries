@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="adalid-compile-lib-1" systemlibrary="false">
+        <archive path="/third-party/lib/commons-collections-3.2.1.jar"/>
+        <archive path="/third-party/lib/commons-fileupload-1.2.2.jar"/>
+        <archive path="/third-party/lib/commons-io-2.1.jar"/>
+        <archive path="/third-party/lib/commons-lang-2.6.jar"/>
+        <archive path="/third-party/lib/jasperreports-5.5.1.jar"/>
+        <archive path="/third-party/lib/joda-time-1.6.2.jar"/>
+        <archive path="/third-party/lib/log4j-1.2.16.jar"/>
+        <archive path="/third-party/lib/velocity-1.7.jar"/>
+    </library>
+    <library name="adalid-compile-meta-lib-1" systemlibrary="false">
+        <archive path="/adalid/lib/adalid-jee1.jar"/>
+        <archive path="/adalid/lib/adalid-core.jar"/>
+        <archive path="/adalid/lib/adalid-commons.jar"/>
+        <archive path="/adalid/lib/adalid-util.jar"/>
+        <archive path="/adalid/lib/adalid-xmi.jar"/>
+    </library>
+</eclipse-userlibraries>

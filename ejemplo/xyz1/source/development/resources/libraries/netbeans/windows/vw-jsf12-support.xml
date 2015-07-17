@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>jsf12-support</name>
+    <type>j2se</type>
+    <description>Visual Web JSF 1.1/1.2 Support</description>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/jsfcl.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/appbase.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/dataprovider.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/visualweb2/modules/ext/sqlx.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>
