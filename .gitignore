@@ -1,5 +1,10 @@
 *.lnk
 *.log
+/ejemplo/adalid/
+/ejemplo/third-party/
+/ejemplo/xyz1ap101/
+/ejemplo/junction.bat
+/ejemplo/WORKSPACE
 /ejemplo/xyz1/source/meta/build/
 /ejemplo/xyz1/source/meta/dist/
 /ejemplo/xyz1/source/meta/nbproject/build-impl.xml

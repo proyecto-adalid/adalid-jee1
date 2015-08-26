@@ -13,7 +13,9 @@ import java.util.Locale;
 import meta.proyecto.base.ProyectoBase;
 import meta.proyecto.comun.Auditoria;
 import meta.proyecto.comun.ControlAcceso;
+import meta.proyecto.comun.ControlProcesos;
 import meta.proyecto.comun.ControlPruebas;
+import meta.proyecto.comun.ControlTareas;
 
 /**
  * @author Jorge Campins
@@ -28,13 +30,14 @@ public class Maestro extends ProyectoBase {
 //      Maestro.setTrackingLoggingLevel(LoggingLevel.INFO);
         Maestro maestro = new Maestro();
         if (maestro.build()) {
-            maestro.setAlias("xyz1ap101");
             maestro.putEnvironmentVariable(VERSION_JAVA, "1.8.0_25");
             maestro.putEnvironmentVariable(VERSION_GLASSFISH, "4.1");
+//          maestro.putEnvironmentVariable(VERSION_JBOSS, "9.0.0.Final");
             maestro.putEnvironmentVariable(VERSION_POSTGRESQL, "9.3");
 //          maestro.setSecurityRealmType(SecurityRealmType.LDAP);
 //          maestro.setRoleBasedAccessControllerName("LDAP");
-            maestro.generate(PLATAFORMA_BASE);
+            maestro.setInternetAccessAllowed(true);
+            maestro.setAlias("xyz1ap101");
             maestro.generate(PLATAFORMA_NETBEANS_POSTGRESQL_GLASSFISH);
         }
     }
@@ -56,12 +59,18 @@ public class Maestro extends ProyectoBase {
     ModuloDocumentos mod3;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
-    ControlAcceso modx;
+    Auditoria modx1;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
-    Auditoria mody;
+    ControlAcceso modx2;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
-    ControlPruebas modz;
+    ControlProcesos modx3;
+
+    @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
+    ControlPruebas modx4;
+
+    @ProjectModule(menu = Kleenean.FALSE, role = Kleenean.TRUE)
+    ControlTareas modx5;
 
 }
