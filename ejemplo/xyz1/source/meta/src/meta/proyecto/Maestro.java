@@ -37,8 +37,8 @@ public class Maestro extends ProyectoBase {
 //          maestro.setSecurityRealmType(SecurityRealmType.LDAP);
 //          maestro.setRoleBasedAccessControllerName("LDAP");
             maestro.setInternetAccessAllowed(true);
-            maestro.attachAddAttributesMethods(meta.postgresql.PostgreSQLAttributes.class);
-            maestro.attachAddAttributesMethods(meta.entidad.comun.operacion.basica.PostgreSQLAttributes.class);
+//          maestro.attachAddAttributesMethods(meta.postgresql.PostgreSQLAttributes.class);
+//          maestro.attachAddAttributesMethods(meta.entidad.comun.operacion.basica.PostgreSQLAttributes.class);
             maestro.setAlias("xyz1ap101");
             maestro.generate(PLATAFORMA_NETBEANS_POSTGRESQL_GLASSFISH);
 //          maestro.setAlias("xyz1ap102");
@@ -47,7 +47,7 @@ public class Maestro extends ProyectoBase {
 //          maestro.generate(PLATAFORMA_ECLIPSE_POSTGRESQL_GLASSFISH);
 //          maestro.setAlias("xyz1ap202");
 //          maestro.generate(PLATAFORMA_ECLIPSE_POSTGRESQL_JBOSS);
-            maestro.clearAddAttributesMethods();
+//          maestro.clearAddAttributesMethods();
         }
     }
 
