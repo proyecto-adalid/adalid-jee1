@@ -233,6 +233,7 @@ public class Pedido extends AbstractPersistentEntity {
     /**
      * many-to-one entity reference property field
      */
+    @Allocation(maxDepth = 2)
     @ColumnField(nullable = Kleenean.FALSE)
     @ForeignKey(onDelete = OnDeleteAction.NONE, onUpdate = OnUpdateAction.NONE)
     @ManyToOne(navigability = Navigability.UNIDIRECTIONAL, view = MasterDetailView.TABLE_AND_DETAIL)
@@ -297,6 +298,12 @@ public class Pedido extends AbstractPersistentEntity {
         tarjeta.setDefaultDescription("número de tarjeta de crédito utilizada para el pago");
         direccion.setDefaultLabel("dirección");
         direccion.setDefaultDescription("dirección de envío (si es diferente a la dirección del cliente)");
+    }
+
+    @Override
+    protected void settleLinks() {
+        super.settleLinks();
+        linkForeignSegmentProperty(cliente.tipo);
     }
 
     View v1;

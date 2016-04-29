@@ -33,20 +33,20 @@ public class PostgreSQLAttributes {
             KVP.join(AUTOVACUUM_ENABLED, true)
         );
         entity.addAttribute(TABLESPACE, tablespace);
-        entity.addAttribute(entity.getPrimaryKeyProperty(), WITH, KVP.join(FILLFACTOR, 81));
+        entity.addAttribute(entity.getPrimaryKeyProperty(), WITH, KVP.join(FILLFACTOR, 100));
 //      entity.addAttribute(entity.getPrimaryKeyProperty(), TABLESPACE, tablespace);
-        entity.addAttribute(entity.getVersionProperty(), WITH, KVP.join(FILLFACTOR, 82));
+        entity.addAttribute(entity.getVersionProperty(), WITH, KVP.join(FILLFACTOR, 100));
 //      entity.addAttribute(entity.getVersionProperty(), TABLESPACE, tablespace);
-        entity.addAttribute(entity.getBusinessKeyProperty(), WITH, KVP.join(FILLFACTOR, 83));
+        entity.addAttribute(entity.getBusinessKeyProperty(), WITH, KVP.join(FILLFACTOR, 90));
 //      entity.addAttribute(entity.getBusinessKeyProperty(), TABLESPACE, tablespace);
-        entity.addAttribute(entity.getNameProperty(), WITH, KVP.join(FILLFACTOR, 84));
+        entity.addAttribute(entity.getNameProperty(), WITH, KVP.join(FILLFACTOR, 80));
 //      entity.addAttribute(entity.getNameProperty(), TABLESPACE, tablespace);
     }
 
     @AddAttributesMethod
     public static void addAttributes(Key key) {
 //      String tablespace = getTablespace();
-        key.addAttribute(WITH, KVP.join(FILLFACTOR, 88));
+        key.addAttribute(WITH, KVP.join(FILLFACTOR, 90));
 //      key.addAttribute(TABLESPACE, tablespace);
     }
 

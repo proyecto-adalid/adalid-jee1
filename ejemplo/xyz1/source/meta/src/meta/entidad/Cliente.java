@@ -6,12 +6,60 @@
  */
 package meta.entidad;
 
-import adalid.core.*;
-import adalid.core.annotations.*;
-import adalid.core.enums.*;
-import adalid.core.interfaces.*;
-import adalid.core.parameters.*;
-import adalid.core.properties.*;
+import adalid.core.AbstractPersistentEntity;
+import adalid.core.ExportOperation;
+import adalid.core.ProcessOperation;
+import adalid.core.ReportOperation;
+import adalid.core.Tab;
+import adalid.core.View;
+import adalid.core.ViewField;
+import adalid.core.annotations.AbstractClass;
+import adalid.core.annotations.Allocation;
+import adalid.core.annotations.BigDecimalField;
+import adalid.core.annotations.BooleanDataGen;
+import adalid.core.annotations.BusinessKey;
+import adalid.core.annotations.CharacterDataGen;
+import adalid.core.annotations.ColumnField;
+import adalid.core.annotations.DiscriminatorColumn;
+import adalid.core.annotations.EntityDataGen;
+import adalid.core.annotations.EntityTableView;
+import adalid.core.annotations.ExportOperationClass;
+import adalid.core.annotations.ForeignKey;
+import adalid.core.annotations.InheritanceMapping;
+import adalid.core.annotations.InstanceReference;
+import adalid.core.annotations.ManyToOne;
+import adalid.core.annotations.NameProperty;
+import adalid.core.annotations.NumericDataGen;
+import adalid.core.annotations.NumericField;
+import adalid.core.annotations.OperationClass;
+import adalid.core.annotations.ParameterField;
+import adalid.core.annotations.PrimaryKey;
+import adalid.core.annotations.ProcessOperationClass;
+import adalid.core.annotations.PropertyField;
+import adalid.core.annotations.ReportOperationClass;
+import adalid.core.annotations.SegmentProperty;
+import adalid.core.annotations.VersionProperty;
+import adalid.core.enums.DivisorRule;
+import adalid.core.enums.InheritanceMappingStrategy;
+import adalid.core.enums.Kleenean;
+import adalid.core.enums.MasterDetailView;
+import adalid.core.enums.Navigability;
+import adalid.core.enums.OnDeleteAction;
+import adalid.core.enums.OnUpdateAction;
+import adalid.core.enums.OperationAccess;
+import adalid.core.enums.PropertyAccess;
+import adalid.core.enums.SortOption;
+import adalid.core.enums.StandardRelationalOp;
+import adalid.core.enums.ViewFieldAggregation;
+import adalid.core.interfaces.Artifact;
+import adalid.core.parameters.BigDecimalParameter;
+import adalid.core.parameters.BooleanParameter;
+import adalid.core.parameters.DateParameter;
+import adalid.core.properties.BigDecimalProperty;
+import adalid.core.properties.BooleanProperty;
+import adalid.core.properties.DateProperty;
+import adalid.core.properties.LongProperty;
+import adalid.core.properties.StringProperty;
 import java.lang.reflect.Field;
 
 /**
@@ -190,6 +238,7 @@ public class Cliente extends AbstractPersistentEntity {
     public LongProperty version;
 
     @DiscriminatorColumn
+    @SegmentProperty
     @ForeignKey(onDelete = OnDeleteAction.NONE, onUpdate = OnUpdateAction.NONE)
     @ManyToOne(navigability = Navigability.UNIDIRECTIONAL, view = MasterDetailView.NONE)
     public TipoCliente tipo;
@@ -266,21 +315,21 @@ public class Cliente extends AbstractPersistentEntity {
      * boolean property field
      */
     @ColumnField(nullable = Kleenean.FALSE)
-    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.FALSE, report = Kleenean.FALSE)
+    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.TRUE, report = Kleenean.FALSE)
     public BooleanProperty analizado;
 
     /**
      * boolean property field
      */
     @ColumnField(nullable = Kleenean.FALSE)
-    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.FALSE, report = Kleenean.FALSE)
+    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.TRUE, report = Kleenean.FALSE)
     public BooleanProperty aprobado;
 
     /**
      * boolean property field
      */
     @ColumnField(nullable = Kleenean.TRUE)
-    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.FALSE, report = Kleenean.FALSE)
+    @PropertyField(create = Kleenean.TRUE, update = Kleenean.TRUE, search = Kleenean.TRUE, table = Kleenean.TRUE, report = Kleenean.FALSE)
     @BooleanDataGen(nullable = 50)
     public BooleanProperty auditado;
 
@@ -357,6 +406,24 @@ public class Cliente extends AbstractPersistentEntity {
         protected Jurisdiccion jurisdiccion;
 
         /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter analizado;
+
+        /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter aprobado;
+
+        /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter auditado;
+
+        /**
          * date parameter field
          */
         @ParameterField(linkedField = "fechaInicioRelacion", operator = StandardRelationalOp.GTEQ)
@@ -405,6 +472,24 @@ public class Cliente extends AbstractPersistentEntity {
          */
         @ParameterField
         protected Jurisdiccion jurisdiccion;
+
+        /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter analizado;
+
+        /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter aprobado;
+
+        /**
+         * boolean parameter field
+         */
+        @ParameterField()
+        protected BooleanParameter auditado;
 
         /**
          * date parameter field

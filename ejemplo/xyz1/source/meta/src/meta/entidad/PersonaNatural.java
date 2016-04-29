@@ -30,7 +30,8 @@ import adalid.core.enums.Navigability;
 import adalid.core.enums.OnDeleteAction;
 import adalid.core.enums.OnUpdateAction;
 import adalid.core.enums.OperationAccess;
-import adalid.core.interfaces.*;
+import adalid.core.interfaces.Artifact;
+import adalid.core.interfaces.Check;
 import adalid.core.parameters.StringParameter;
 import adalid.core.properties.DateProperty;
 import adalid.core.properties.StringProperty;
@@ -201,6 +202,7 @@ public class PersonaNatural extends Cliente {
     /**
      * date property field
      */
+    @ColumnField(nullable = Kleenean.FALSE)
     @PropertyField(create = Kleenean.TRUE, report = Kleenean.TRUE)
     @TemporalDataGen(min = "-80Y", max = "-21Y")
     public DateProperty fechaNacimiento;

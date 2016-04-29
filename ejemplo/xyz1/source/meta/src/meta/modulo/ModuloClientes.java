@@ -4,30 +4,35 @@
  * Este programa se distribuye con la esperanza de que pueda ser util, pero SIN NINGUNA GARANTIA;
  * vea la licencia "GNU General Public License" para obtener mas informacion.
  */
-package meta.proyecto;
+package meta.modulo;
 
 import adalid.core.Project;
-import meta.entidad.Pedido;
-import meta.entidad.Producto;
-import meta.entidad.RenglonPedido;
+import meta.entidad.ActividadEconomica;
+import meta.entidad.Cliente;
+import meta.entidad.Jurisdiccion;
+import meta.entidad.PersonaJuridica;
+import meta.entidad.PersonaNatural;
 
 /**
  * @author Jorge Campins
  */
-public class ModuloPedidos extends Project {
+public class ModuloClientes extends Project {
 
     @Override
     protected void settleAttributes() {
         super.settleAttributes();
-        setDefaultLabel("Pedidos");
-        setDefaultDescription("Módulo de Pedidos");
-
+        setDefaultLabel("Clientes");
+        setDefaultDescription("Módulo de Clientes");
     }
 
-    Producto producto;
+    ActividadEconomica actividadEconomica;
 
-    Pedido pedido;
+    Cliente cliente;
 
-    RenglonPedido renglonPedido;
+    Jurisdiccion jurisdiccion;
+
+    PersonaJuridica personaJuridica;
+
+    PersonaNatural personaNatural;
 
 }

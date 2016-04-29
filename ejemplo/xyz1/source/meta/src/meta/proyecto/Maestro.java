@@ -10,6 +10,9 @@ import adalid.commons.enums.LoggingLevel;
 import adalid.core.annotations.ProjectModule;
 import adalid.core.enums.Kleenean;
 import java.util.Locale;
+import meta.modulo.ModuloClientes;
+import meta.modulo.ModuloDocumentos;
+import meta.modulo.ModuloPedidos;
 import meta.proyecto.base.ProyectoBase;
 import meta.proyecto.comun.Auditoria;
 import meta.proyecto.comun.ControlAcceso;
@@ -23,30 +26,26 @@ import meta.proyecto.comun.ControlTareas;
 public class Maestro extends ProyectoBase {
 
     public static void main(String[] args) {
-//      Maestro.setLocale(Locale.ENGLISH);
-        Maestro.setLocale(Locale.forLanguageTag("es"));
-        Maestro.setAlertLoggingLevel(LoggingLevel.OFF);
-//      Maestro.setDetailLoggingLevel(LoggingLevel.INFO);
-//      Maestro.setTrackingLoggingLevel(LoggingLevel.INFO);
+//      setBootstrappingFileName("bootstrapping.properties");
+//      setLocale(Locale.ENGLISH);
+        setLocale(Locale.forLanguageTag("es"));
+        setAlertLoggingLevel(LoggingLevel.OFF);
+//      setDetailLoggingLevel(LoggingLevel.INFO);
+//      setTrackingLoggingLevel(LoggingLevel.INFO);
         Maestro maestro = new Maestro();
         if (maestro.build()) {
-            maestro.putEnvironmentVariable(VERSION_JAVA, "1.8.0_25");
-            maestro.putEnvironmentVariable(VERSION_GLASSFISH, "4.1");
-//          maestro.putEnvironmentVariable(VERSION_JBOSS, "9.0.0.Final");
-            maestro.putEnvironmentVariable(VERSION_POSTGRESQL, "9.3");
-//          maestro.setSecurityRealmType(SecurityRealmType.LDAP);
-//          maestro.setRoleBasedAccessControllerName("LDAP");
+            maestro.putEnvironmentVariable(VERSION_JAVA, "1.8.0_77");
+            maestro.putEnvironmentVariable(VERSION_GLASSFISH, "4.1.1");
+            maestro.putEnvironmentVariable(VERSION_WILDFLY, "10.0.0.Final");
+            maestro.putEnvironmentVariable(VERSION_POSTGRESQL, "9.5");
             maestro.setInternetAccessAllowed(true);
+            maestro.setProjectMailingEnabled(true);
+//          maestro.setProjectStage(ProjectStage.PRODUCTION);
+//          maestro.setSecurityRealmType(SecurityRealmType.LDAP);
 //          maestro.attachAddAttributesMethods(meta.postgresql.PostgreSQLAttributes.class);
 //          maestro.attachAddAttributesMethods(meta.entidad.comun.operacion.basica.PostgreSQLAttributes.class);
             maestro.setAlias("xyz1ap101");
             maestro.generate(PLATAFORMA_NETBEANS_POSTGRESQL_GLASSFISH);
-//          maestro.setAlias("xyz1ap102");
-//          maestro.generate(PLATAFORMA_NETBEANS_POSTGRESQL_JBOSS);
-//          maestro.setAlias("xyz1ap201");
-//          maestro.generate(PLATAFORMA_ECLIPSE_POSTGRESQL_GLASSFISH);
-//          maestro.setAlias("xyz1ap202");
-//          maestro.generate(PLATAFORMA_ECLIPSE_POSTGRESQL_JBOSS);
 //          maestro.clearAddAttributesMethods();
         }
     }
@@ -62,10 +61,10 @@ public class Maestro extends ProyectoBase {
     ModuloClientes mod1;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
-    ModuloPedidos mod2;
+    ModuloDocumentos mod2;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
-    ModuloDocumentos mod3;
+    ModuloPedidos mod3;
 
     @ProjectModule(menu = Kleenean.TRUE, role = Kleenean.TRUE)
     Auditoria modx1;
