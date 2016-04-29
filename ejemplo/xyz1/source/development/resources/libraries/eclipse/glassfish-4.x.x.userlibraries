@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<eclipse-userlibraries version="2">
+    <library name="glassfish-core-modules" systemlibrary="false">
+        <archive path="/glassfish/modules/javax.el.jar"/>
+        <archive path="/glassfish/modules/javax.faces.jar"/>
+        <archive path="/glassfish/modules/javax.jms-api.jar"/>
+        <archive path="/glassfish/modules/javax.servlet-api.jar"/>
+        <archive path="/glassfish/modules/javax.servlet.jsp.jar"/>
+    </library>
+    <library name="glassfish-eclipselink" systemlibrary="false">
+        <archive path="/glassfish/modules/org.eclipse.persistence.core.jar"/>
+        <archive path="/glassfish/modules/org.eclipse.persistence.jpa.jar"/>
+        <archive path="/glassfish/modules/org.eclipse.persistence.jpa.jpql.jar"/>
+        <archive path="/glassfish/modules/javax.persistence.jar"/>
+    </library>
+</eclipse-userlibraries>
