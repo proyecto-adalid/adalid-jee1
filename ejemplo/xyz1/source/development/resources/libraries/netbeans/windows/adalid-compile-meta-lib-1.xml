@@ -8,7 +8,6 @@
         <resource>jar:file:/C:/workspace/adalid/lib/adalid-core.jar!/</resource>
         <resource>jar:file:/C:/workspace/adalid/lib/adalid-commons.jar!/</resource>
         <resource>jar:file:/C:/workspace/adalid/lib/adalid-util.jar!/</resource>
-        <resource>jar:file:/C:/workspace/adalid/lib/adalid-xmi.jar!/</resource>
     </volume>
     <volume>
         <type>src</type>

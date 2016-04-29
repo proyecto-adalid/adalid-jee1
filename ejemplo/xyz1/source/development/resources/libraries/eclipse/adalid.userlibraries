@@ -13,6 +13,5 @@
         <archive path="/adalid/lib/adalid-core.jar"/>
         <archive path="/adalid/lib/adalid-commons.jar"/>
         <archive path="/adalid/lib/adalid-util.jar"/>
-        <archive path="/adalid/lib/adalid-xmi.jar"/>
     </library>
 </eclipse-userlibraries>
