@@ -5,10 +5,10 @@
     <description>Visual Web JSF 1.1/1.2 Support</description>
     <volume>
         <type>classpath</type>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/jsfcl.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/appbase.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/dataprovider.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/sqlx.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/jsfcl.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/appbase.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/dataprovider.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/sqlx.jar!/</resource>
     </volume>
     <volume>
         <type>src</type>

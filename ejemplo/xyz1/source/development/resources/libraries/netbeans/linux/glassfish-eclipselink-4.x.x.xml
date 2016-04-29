@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library xmlns="http://www.netbeans.org/ns/library-declaration/3" version="3.0">
+    <name>glassfish-eclipselink</name>
+    <type>j2se</type>
+    <localizing-bundle>org.netbeans.modules.j2ee.eclipselink.Bundle</localizing-bundle>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:file:/opt/glassfish-4.0/glassfish/modules/org.eclipse.persistence.core.jar!/</resource>
+        <resource>jar:file:/opt/glassfish-4.0/glassfish/modules/org.eclipse.persistence.jpa.jar!/</resource>
+        <resource>jar:file:/opt/glassfish-4.0/glassfish/modules/org.eclipse.persistence.jpa.jpql.jar!/</resource>
+        <resource>jar:file:/opt/glassfish-4.0/glassfish/modules/javax.persistence.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+    </volume>
+    <volume>
+        <type>maven-pom</type>
+    </volume>
+</library>

@@ -5,10 +5,10 @@
     <description>Visual Web UI Components</description>
     <volume>
         <type>classpath</type>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/webui-jsf.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/json-2.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-common-0.1.jar!/</resource>
-        <resource>jar:file:/home/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-dynamic-faces-0.1.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/webui-jsf.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/json-2.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-common-0.1.jar!/</resource>
+        <resource>jar:file:/opt/workspace/third-party/lib/visualweb2/modules/ext/jsf-extensions-dynamic-faces-0.1.jar!/</resource>
     </volume>
     <volume>
         <type>src</type>
