@@ -1,6 +1,7 @@
 pushd "%~dp0"
 call:set-project-variables "%CD%"
 call:set-variables-date-time
+call:set-language-variables
 popd
 goto:eof
 
@@ -111,4 +112,40 @@ set xx=%1
 call set xx=00%%%xx%%%
 set %1=%xx:~-2%
 set xx=
+goto:eof
+
+:set-language-variables
+set language=
+set country=
+set locale=
+set ENGLISH_LANGUAGE=
+echo systeminfo
+if exist systeminfo.log del systeminfo.log
+systeminfo /FO LIST 1>systeminfo.log 2>&1
+if exist systeminfo.log (
+    for /f "delims=_-:; tokens=1-4*" %%a in (systeminfo.log) do (
+        if /i "%%a" == "System Locale" (
+            call:set-language-variable %%b %%c
+        )
+        if /i "%%a" == "Input Locale" (
+            call:set-language-variable %%b %%c
+        )
+    )
+)
+if /i "x%language%" == "xen" set ENGLISH_LANGUAGE=yes
+rem set language
+rem set country
+rem set locale
+rem set ENGLISH_LANGUAGE
+goto:eof
+
+:set-language-variable
+if "x%1" == "x" goto:eof
+set language=%1
+set language=%language: =%
+set locale=%language%
+if "x%2" == "x" goto:eof
+set country=%2
+set country=%country: =%
+set locale=%language%-%country%
 goto:eof
