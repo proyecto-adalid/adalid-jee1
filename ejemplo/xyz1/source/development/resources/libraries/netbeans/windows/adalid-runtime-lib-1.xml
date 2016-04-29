@@ -11,7 +11,7 @@
         <resource>jar:file:/C:/workspace/third-party/lib/commons-io-2.1.jar!/</resource>
         <resource>jar:file:/C:/workspace/third-party/lib/commons-javaflow-20060411.jar!/</resource>
         <resource>jar:file:/C:/workspace/third-party/lib/commons-lang-2.6.jar!/</resource>
-        <resource>jar:file:/C:/workspace/third-party/lib/commons-logging-1.1.2.jar!/</resource>
+        <resource>jar:file:/C:/workspace/third-party/lib/commons-logging-1.1.3.jar!/</resource>
         <resource>jar:file:/C:/workspace/third-party/lib/iText-2.1.7.jar!/</resource>
         <resource>jar:file:/C:/workspace/third-party/lib/jasperreports-5.5.1.jar!/</resource>
         <resource>jar:file:/C:/workspace/third-party/lib/jasperreports-fonts-5.5.1.jar!/</resource>
