@@ -7,11 +7,9 @@
 package meta.util;
 
 import adalid.commons.enums.LoggingLevel;
-import adalid.commons.util.FilUtils;
 import adalid.util.Utility;
 import adalid.util.sql.SqlMerger;
 import meta.proyecto.comun.ConfiguracionBasica;
-import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 /**
@@ -21,23 +19,43 @@ public class SQLMerger extends Utility {
 
     private static final Logger logger = Logger.getLogger(SqlMerger.class);
 
-    private static final String FILE_SEPARATOR = System.getProperties().getProperty("file.separator");
-
-//  must specify program arguments or add one the following lines to the bootstrapping properties file
-//  meta.util.SQLMerger.args=oracle, localhost, 1521, XYZ1AP111, oracle, XE, xyz1ap111, former
-//  meta.util.SQLMerger.args=postgresql, localhost, 5432, postgres, postgres, xyz1ap101, public, former
     public static void main(String[] args) {
-//      setBootstrappingFileName("bootstrapping.properties");
+        /*
+         * Use method setBootstrappingFileName to specify the name of the bootstrapping properties file.
+         * By default or by specifying a null value, the name will be bootstrapping.properties.
+         */
+        // setBootstrappingFileName("bootstrapping.properties");
+        /*
+         * SqlMerger constructor requires the following arguments: dbms, host, port, user, password, database, schema and oldSchema.
+         * Use the IDE to specify program arguments or add a property to the bootstrapping properties file. In the later case,
+         * the property name must be meta.util.SQLMerger.args and its value must be the arguments, as a comma-separated list.
+         * For example:
+         * meta.util.SQLMerger.args=postgresql, localhost, 5432, postgres, postgres, xyz1ap101, public, former
+         * meta.util.SQLMerger.args=oracle, localhost, 1521, XYZ1AP111, oracle, XE, xyz1ap111, former
+         */
         if (args.length == 0) {
+            /*
+             * method getArguments looks for property meta.util.SQLMerger.args in the bootstrapping properties file.
+             */
             args = getArguments(SQLMerger.class);
         }
         SqlMerger merger = new SqlMerger(args);
         if (merger.isInitialised()) {
-//          Use method setOldDataFolder to specify the absolute path of the folder used by COPY commands.
-//          By default or by specifying a null value, the folder will be a subfolder of the test folder.
-//          PostgreSQL user must be authorized to read and write files in the specified folder.
-            String folder = defaultOldDataFolder(merger);
-            merger.setOldDataFolder(folder);
+            /*
+             * Use method setProjectAlias to specify the project alias used to define the folder where generated scripts will be written to.
+             * The project alias is also used to define the default folder used by COPY commands (see the comments on method setOldDataFolder).
+             * By default or by specifying a null value, the alias will be either the Oracle schema or the PostgreSQL database name.
+             */
+            // merger.setProjectAlias("xyz1ap101");
+            logger.info("projectAlias=" + merger.getProjectAlias());
+            /*
+             * Use method setOldDataFolder to specify the absolute path of the folder used by COPY commands.
+             * By default or by specifying a null value, the folder will be a subfolder of the workspace directory,
+             * specifically /alias/source/management/backup/dbms/oldSchema, where alias is substituted by the project alias,
+             * dbms and oldSchema are substituted by their corresponding arguments, and the rest is constant.
+             * PostgreSQL user must be authorized to read and write files in the specified folder.
+             */
+            // merger.setOldDataFolder(folder);
             logger.info("oldDataFolder=" + merger.getOldDataFolder());
             ConfiguracionBasica.setAlertLoggingLevel(LoggingLevel.OFF);
             ConfiguracionBasica configuracionBasica = new ConfiguracionBasica();
@@ -46,22 +64,6 @@ public class SQLMerger extends Utility {
                 merger.merge();
             }
         }
-    }
-
-    private static String defaultOldDataFolder(SqlMerger merger) {
-        String dbms = merger.getDbms();
-        String database = merger.getDatabase();
-        String newSchema = merger.getNewSchema();
-        String oldSchema = merger.getOldSchema();
-        boolean xe = StringUtils.equalsIgnoreCase(dbms, "oracle") && StringUtils.equalsIgnoreCase(database, "XE");
-        String folder = FilUtils.getWorkspaceFolderPath();
-        folder += FILE_SEPARATOR + (xe ? newSchema : database);
-        folder += FILE_SEPARATOR + "source";
-        folder += FILE_SEPARATOR + "management";
-        folder += FILE_SEPARATOR + "backup";
-        folder += FILE_SEPARATOR + dbms;
-        folder += FILE_SEPARATOR + oldSchema;
-        return folder;
     }
 
 }

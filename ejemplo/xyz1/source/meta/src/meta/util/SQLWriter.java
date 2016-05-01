@@ -11,11 +11,14 @@ import adalid.util.Utility;
 import adalid.util.sql.SqlWriter;
 import meta.entidad.comun.control.acceso.Usuario;
 import meta.proyecto.comun.EntidadesComunes;
+import org.apache.log4j.Logger;
 
 /**
  * @author Jorge Campins
  */
 public class SQLWriter extends Utility {
+
+    private static final Logger logger = Logger.getLogger(SqlWriter.class);
 
     // <editor-fold defaultstate="collapsed" desc="listas de tablas">
     private static final String[] TABLAS_EXCLUIDAS = new String[]{
@@ -92,18 +95,34 @@ public class SQLWriter extends Utility {
     };
     // </editor-fold>
 
-//  must specify program arguments or add one the following lines to the bootstrapping properties file
-//  meta.util.SQLWriter.args=oracle, localhost, 1521, USER, password, XE, schema
-//  meta.util.SQLWriter.args=postgresql, localhost, 5432, user, password, database, schema
     public static void main(String[] args) {
-//      setBootstrappingFileName("bootstrapping.properties");
+        /*
+         * Use method setBootstrappingFileName to specify the name of the bootstrapping properties file.
+         * By default or by specifying a null value, the name will be bootstrapping.properties.
+         */
+        // setBootstrappingFileName("bootstrapping.properties");
+        /*
+         * SqlWriter constructor requires the following arguments: dbms, host, port, user, password, database and schema.
+         * Use the IDE to specify program arguments or add a property to the bootstrapping properties file. In the later case,
+         * the property name must be meta.util.SQLWriter.args and its value must be the arguments, as a comma-separated list.
+         * For example:
+         * meta.util.SQLWriter.args=postgresql, localhost, 5432, postgres, postgres, xyz1ap101, public
+         * meta.util.SQLWriter.args=oracle, localhost, 1521, XYZ1AP111, oracle, XE, xyz1ap111
+         */
         if (args.length == 0) {
+            /*
+             * method getArguments looks for property meta.util.SQLMerger.args in the bootstrapping properties file.
+             */
             args = getArguments(SQLWriter.class);
         }
         SqlWriter writer = new SqlWriter(args);
         if (writer.isInitialised()) {
-//          writer.setAlias("xyz1ap101");
-//          writer.setSelectTemplatesPath("templates/meta/java/sql");
+            /*
+             * Use method setProjectAlias to specify the project alias used to define the target meta-java package.
+             * By default or by specifying a null value, the alias will be either the Oracle schema or the PostgreSQL database name.
+             */
+            // writer.setProjectAlias("xyz1ap101");
+            logger.info("projectAlias=" + writer.getProjectAlias());
             EntidadesComunes.setAlertLoggingLevel(LoggingLevel.OFF);
             EntidadesComunes entidadesComunes = new EntidadesComunes();
             entidadesComunes.setUserEntityClass(Usuario.class);
