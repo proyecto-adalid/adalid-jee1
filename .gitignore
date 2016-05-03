@@ -1,5 +1,6 @@
 *.lnk
 *.log
+/.svnversion
 /ejemplo/adalid/
 /ejemplo/third-party/
 /ejemplo/xyz1ap101/
@@ -10,4 +11,3 @@
 /ejemplo/xyz1/source/meta/nbproject/build-impl.xml
 /ejemplo/xyz1/source/meta/nbproject/genfiles.properties
 /ejemplo/xyz1/source/meta/nbproject/private/
-/zip/archives
