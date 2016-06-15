@@ -1,6 +1,5 @@
 *.lnk
 *.log
-/.svnversion
 /ejemplo/adalid/
 /ejemplo/third-party/
 /ejemplo/xyz1ap101/
